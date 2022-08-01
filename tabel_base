@@ -1,0 +1,23 @@
+CREATE TABLE table_base AS
+WITH base AS (
+		SELECT  id_invoice, id_customer, id_barang, 
+        EXTRACT (MONTH FROM tanggal) AS num_bulan,
+        tanggal, jumlah_barang
+		FROM penjualan
+		UNION DISTINCT
+		SELECT  id_invoice, id_customer, id_barang, 
+        EXTRACT (MONTH FROM tanggal) AS num_bulan,
+        tanggal, jumlah_barang
+		FROM penjualan_ds 
+)
+SELECT  base.tanggal, base.num_bulan, base.id_invoice, base.id_customer,p.nama AS nama_pelanggan,p.grup AS grup, 
+		p.id_distributor, p.cabang_sales AS cabang, base.id_barang, b.nama_barang, b.brand, base.jumlah_barang, b.harga
+FROM base
+LEFT JOIN pelanggan_ds AS p
+  ON base.id_customer = p.id_customer
+LEFT JOIN barang_ds AS b
+  ON base.id_barang = b.kode_barang
+ORDER BY base.id_invoice
+
+
+select * from table_base

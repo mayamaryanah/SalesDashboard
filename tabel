@@ -1,0 +1,71 @@
+CREATE TABLE barang (
+	kode_barang VARCHAR,
+	sektor VARCHAR,
+	nama_barang VARCHAR,
+	tipe VARCHAR,
+	nama_tipe VARCHAR,
+	kode_line VARCHAR,
+	lini VARCHAR,
+	kemasan VARCHAR
+);
+
+CREATE TABLE barang_ds (
+	kode_barang VARCHAR,
+	nama_barang VARCHAR,
+	kemasan VARCHAR,
+	harga INT,
+	nama_tipe VARCHAR,
+	kode_brand INT,
+	brand VARCHAR
+);
+
+CREATE TABLE pelanggan (
+	id_customer VARCHAR,
+	level VARCHAR,
+	nama VARCHAR,
+	id_cabang_sales VARCHAR,
+	cabang_sales VARCHAR,
+	id_group VARCHAR,
+	grup VARCHAR
+);
+
+CREATE TABLE pelanggan_ds (
+	id_customer VARCHAR,
+	level VARCHAR,
+	nama VARCHAR,
+	id_cabang_sales VARCHAR,
+	cabang_sales VARCHAR,
+	id_distributor VARCHAR,
+	grup VARCHAR
+);
+
+CREATE TABLE penjualan (
+	id_distributor VARCHAR,
+	id_cabang VARCHAR,
+	id_invoice VARCHAR,
+	tanggal DATE,
+	id_customer VARCHAR,
+	id_barang  VARCHAR,
+	jumlah_barang DECIMAL,
+	unit VARCHAR,
+	harga DECIMAL,
+	mata_uang VARCHAR,
+	brand_id VARCHAR,
+	lini VARCHAR
+);
+
+CREATE TABLE penjualan_ds (
+	id_invoice VARCHAR,
+	tanggal DATE,
+	id_customer VARCHAR,
+	id_barang VARCHAR,
+	jumlah_barang DECIMAL,
+	unit VARCHAR,
+	harga INT,
+	mata_uang VARCHAR
+);
+
+
+
+
+

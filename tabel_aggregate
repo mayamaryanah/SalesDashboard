@@ -1,0 +1,9 @@
+CREATE TABLE datamart AS
+SELECT  * ,
+        (jumlah_barang * harga) AS total_harga
+FROM  table_base 
+
+
+select grup,num_bulan, SUM(jumlah_barang) as total_barang_terjual, SUM(total_harga) as total_pendapatan
+from datamart
+group by 1,2
